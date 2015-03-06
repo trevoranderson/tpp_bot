@@ -1,0 +1,28 @@
+{
+  "name": "pokemonbot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "description": "pokemonbot",
+  "author": {
+    "name": "trevor",
+    "email": ""
+  },
+  "dependencies": {
+    "body-parser": "~1.8.1",
+    "colors": "^1.0.3",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "ejs": "^2.3.1",
+    "express": "~4.9.0",
+    "irc": "^0.3.9",
+    "jade": "~1.6.0",
+    "lodash": "^3.3.1",
+    "morgan": "~1.3.0",
+    "serve-favicon": "~2.1.3",
+    "socket.io": "^1.3.5",
+    "stylus": "0.42.3"
+  }
+}

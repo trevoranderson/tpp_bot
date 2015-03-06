@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+</head>
+<body>
+    <style>
+        #twitchstream {
+            float: left;
+            position: relative;
+        }
+
+        #twitchchat {
+            float: left;
+            position: relative;
+        }
+
+        #gbcontrol {
+            position: relative;
+            width: 100%;
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+
+        socket.emit('chat message', "YO");
+
+        socket.on('chat message', function (msg) {
+            console.log("Yo");
+        });
+        var submitCtrls = function () {
+            socket.emit("ctrls", JSON.stringify(document.querySelector("#rawCommands").value.split(",")));
+        };
+        var modeSwap = function () {
+            socket.emit("mode", "antistart");
+        }
+    </script>
+    <div id="mode">Free Submit</div>
+    <div id="twitchstream">
+        <iframe src="http://www.twitch.tv/twitchplayspokemon/embed" frameborder="0" scrolling="no" height="378" width="620"></iframe>
+    </div>
+    <div id="twitchchat">
+        <iframe src="http://www.twitch.tv/twitchplayspokemon/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>
+    </div>
+    <textarea id="rawCommands" rows="4" cols="50"></textarea>
+    <div id="submitcontrols" onclick="submitCtrls();">Submit</div>
+
+
+</body>
+</html>
